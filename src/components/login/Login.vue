@@ -4,7 +4,7 @@
       <h2>大保健身房</h2>
     </div>
     <div class="login-logo">
-      <img :src="img" width="20%" height="20%">
+      <img :src="img" style="width: 20%;height: 20%;">
     </div>
     <div class="login-input">
       <el-input type="text" v-model="username" placeholder="用户名"></el-input>
@@ -29,7 +29,7 @@
         username:'',
         password:'',
         radio:'会员',
-        img:'/static/img/logo.jfif'
+        img:'./static/img/logo.jfif'
       }
     },
     methods:{

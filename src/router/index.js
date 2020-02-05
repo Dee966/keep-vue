@@ -12,6 +12,16 @@ import InputPass from "../components/my/InputPass";
 import ChooseCoach from "../components/my/ChooseCoach";
 import CoachMy from "../components/my/CoachMy";
 import Attendance from "../components/my/Attendance";
+import MaLogin from "../components/manager/MaLogin";
+import RegCus from "../components/manager/RegCus";
+import Hearder from "../components/manager/Hearder";
+import LogCus from "../components/manager/LogCus";
+import LogCoach from "../components/manager/LogCoach";
+import RegCoach from "../components/manager/RegCoach";
+import MaShare from "../components/manager/MaShare";
+import CheckCode from "../components/my/CheckCode";
+import LeaveCoach from "../components/manager/LeaveCoach";
+import LeaveCus from "../components/manager/LeaveCus";
 
 Vue.use(Router)
 
@@ -28,6 +38,22 @@ export default new Router({
     {path: '/updPass', name: 'updPassLink', component: UpdatePass},
     {path: '/inputPass', name: 'inputPassLink', component: InputPass},
     {path: '/chooseCoach', name: 'chCoachLink', component: ChooseCoach},
-    {path: '/attendance', name: 'attendanceLink', component: Attendance}
-  ]
+    {path: '/attendance', name: 'attendanceLink', component: Attendance},
+
+    {path: '/maLogin', name: 'maLoginLink', component: MaLogin},
+    {path: '/heard', name: 'logCusLink', component: Hearder,children:
+        [
+        {path: '/regCus', name: 'regCusLink', component: RegCus},
+        {path: '/logCus', name: 'logCusLink', component: LogCus},
+        {path: '/logCoach', name: 'logCoachLink', component: LogCoach},
+        {path: '/regCoach', name: 'regCoachLink', component: RegCoach},
+        {path: '/maShare', name: 'maShareLink', component: MaShare},
+        {path: '/checkCode', name: 'checkCodeLink', component: CheckCode},
+        {path: '/leaveCus', name: 'leaveCusLink', component: LeaveCus},
+        {path: '/leaveCoach', name: 'leaveCoachLink', component: LeaveCoach},
+        ]
+    },
+
+  ],
+  mode:"history"
 })

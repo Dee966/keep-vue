@@ -1,11 +1,8 @@
 <template>
     <div id="home">
-      <div style="position: fixed;top: 0;width: 100%;height: 40px;padding-top: 8px;">
-        <el-page-header @back="goBack" content="主页">
-        </el-page-header>
-      </div>
 
-      <section class="my-swiper" style="margin-top: 56px">
+
+      <section class="my-swiper" style="margin-top: 40px">
         <swiper v-if="items.length>1" :options="swiperOption" style="width: 100%;height: 200px">
           <swiper-slide  class="my-swp-silde" v-for="(slide, key) in items" :key="key" data-id="slide.id">
               <img class="my-swp-img" :src="slide.img" alt="" style="width: 100%;height: 200px" >
@@ -22,7 +19,7 @@
         <el-row style="margin: 20px 20px 0px 20px;background-color: #fcfcfc">
           <el-col :span="6">
             <div class="grid-content bg-purple">
-              <img src="/static/img/share.jfif" alt="" width="70px" height="70px">
+              <img :src="shareImg" alt="" width="70px" height="70px">
             </div>
           </el-col>
           <el-col :span="18">
@@ -38,7 +35,7 @@
         <el-row style="margin: 20px 20px 0px 20px;background-color: #fcfcfc" >
           <el-col :span="6">
             <div class="grid-content bg-purple">
-              <img src="/static/img/person.jfif" alt="" width="70px" height="70px">
+              <img :src="myImg" alt="" width="70px" height="70px">
             </div>
           </el-col>
           <el-col :span="18">
@@ -78,10 +75,12 @@
               user:''
             },
             items: [
-              {img:'/static/img/banner1.jfif'},
-              {img:'/static/img/banner2.jfif'}
+              {img:'./static/img/banner1.jfif'},
+              {img:'./static/img/banner2.jfif'}
             ],
-            typeClass:'md-elevation-'
+            typeClass:'md-elevation-',
+            shareImg:'./static/img/share.jfif',
+            myImg:'./static/img/person.jfif'
           }
       },
       components:{

@@ -18,15 +18,15 @@
       </div>
       <form id="share_form" method="post" enctype="multipart/form-data" ref="uploadform">
         <input type="file" id="picture1" name="picture" multiple="multiple" style="display: none" @change="changePic1()">
-        <img src="/static/img/pic04.jpg" style="width: 80px;height: 80px;" id="img1" @click="clickPic1()">
+        <img :src="uploadImg" style="width: 80px;height: 80px;" id="img1" @click="clickPic1()">
         <img src="" style="width: 80px;height: 80px;display: none" id="preview1">
 
         <input type="file" id="picture2" name="picture" multiple="multiple" style="display: none" @change="changePic2()">
-        <img src="/static/img/pic04.jpg"  style="width: 80px;height: 80px;display: none" id="img2" @click="clickPic2()">
+        <img :src="uploadImg"  style="width: 80px;height: 80px;display: none" id="img2" @click="clickPic2()">
         <img src="" style="width: 80px;height: 80px;display: none" id="preview2">
 
         <input type="file" id="picture3" name="picture" multiple="multiple" style="display: none" @change="changePic3()">
-        <img src="/static/img/pic04.jpg"  style="width: 80px;height: 80px;display: none" id="img3" @click="clickPic3()">
+        <img :src="uploadImg"  style="width: 80px;height: 80px;display: none" id="img3" @click="clickPic3()">
         <img src="" style="width: 80px;height: 80px;display: none" id="preview3">
         <input type="hidden" id="content" name="content">
         <input type="hidden" id="name" name="name">
@@ -46,7 +46,8 @@
         firImg: '',
         secImg: '',
         thiImg: '',
-        ipAddress:''
+        ipAddress:'',
+        uploadImg:'./static/img/pic04.jpg'
       }
     },
     methods: {
@@ -73,9 +74,6 @@
             }
             alert('分享成功')
             history.back()
-          },
-          error:function () {
-            alert('系统错误')
           }
         })
       },
@@ -97,7 +95,7 @@
         $("#picture2").click()
       },
       changePic2(){
-        let objUrl = this.getObjectURL($('#picture1')[0].files[0]) ;//获取文件信息
+        let objUrl = this.getObjectURL($('#picture2')[0].files[0]) ;//获取文件信息
         console.log("objUrl = "+objUrl);
         if (objUrl) {
           document.getElementById("preview2").style.display="";
@@ -110,7 +108,7 @@
         $("#picture3").click()
       },
       changePic3(){
-        let objUrl = this.getObjectURL($('#picture1')[0].files[0]) ;//获取文件信息
+        let objUrl = this.getObjectURL($('#picture3')[0].files[0]) ;//获取文件信息
         console.log("objUrl = "+objUrl);
         if (objUrl) {
           document.getElementById("preview3").style.display="";

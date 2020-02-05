@@ -7,7 +7,7 @@
         <span style="font-size: 30px;margin-right: 5px"><i class="el-icon-camera-solid"></i></span>
       </router-link>
     </div>
-    <img src="/static/img/share.jfif" style="width: 100%;height: 250px;margin-bottom: 5px">
+    <img :src="shareImg" style="width: 100%;height: 250px;margin-bottom: 5px">
 
     <div v-for="(share,i) in shares" :key="i">
       <div id="share-content">
@@ -67,7 +67,8 @@
         praise:'p',
         name:'',
         shareId:0,
-        dialogVisible:false
+        dialogVisible:false,
+        shareImg:'./static/img/share.jfif'
       }
     },
     methods: {

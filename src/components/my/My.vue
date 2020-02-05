@@ -114,7 +114,7 @@
             weight:'',
             telephone:'',
             email:'',
-            img:'/static/img/heard.jfif',
+            img:'./static/img/heard.jfif',
             dialogVisible:false,
             customer:{},
             dialogVisible1:false,
@@ -151,12 +151,12 @@
         },
         updateInfo(){
           let customerVo = {
-            name: this.coach.name,
-            sex: this.coach.sex,
-            age: this.coach.age,
-            tall: this.coach.tall,
-            weight: this.coach.weight,
-            telephone: this.coach.telephone
+            name: this.customer.name,
+            sex: this.customer.sex,
+            age: this.customer.age,
+            tall: this.customer.tall,
+            weight: this.customer.weight,
+            telephone: this.customer.telephone
           }
           console.log(customerVo)
           this.$axios.put('http://'+localStorage.getItem('ipAddress')+':8082/customer/info/'+localStorage.getItem('userId'),customerVo).then(res =>{

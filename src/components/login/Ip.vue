@@ -1,5 +1,5 @@
 <template>
-    <div id="ip">
+    <div id="ip" style="margin-top: 2%">
       <el-input v-model="input" placeholder="请输入服务器ip"></el-input>
       <el-button icon="el-icon-check" circle @click="saveIp()"></el-button>
     </div>

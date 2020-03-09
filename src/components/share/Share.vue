@@ -17,17 +17,17 @@
         <el-row v-if="share.firImg != ''">
           <el-col :span="8" v-if="share.firImg != ''">
             <div class="grid-content bg-purple">
-              <img :src="share.firImg" alt="" style="height: 120px;">
+              <img :src="share.firImg" alt="" style="height: 120px;" @click="dialogVisible1 = true,enlarge = share.firImg">
             </div>
           </el-col>
           <el-col :span="8" v-if="share.secImg != ''">
             <div class="grid-content bg-purple-light">
-              <img :src="share.secImg" alt="" style="height: 120px;">
+              <img :src="share.secImg" alt="" style="height: 120px;" @click="dialogVisible1 = true,enlarge = share.secImg">
             </div>
           </el-col>
           <el-col :span="8" v-if="share.thiImg != ''">
             <div class="grid-content bg-purple">
-              <img :src="share.thiImg" alt="" style="height: 120px;">
+              <img :src="share.thiImg" alt="" style="height: 120px;" @click="dialogVisible1 = true,enlarge = share.thiImg">
             </div>
           </el-col>
         </el-row>
@@ -53,6 +53,14 @@
         </span>
     </el-dialog>
 
+    <el-dialog
+      :visible.sync="dialogVisible1"
+      width="100%"
+      height="80%"
+    >
+      <img :src="enlarge" alt="">
+    </el-dialog>
+
   </div>
 
 </template>
@@ -68,7 +76,9 @@
         name:'',
         shareId:0,
         dialogVisible:false,
-        shareImg:'./static/img/share.jfif'
+        shareImg:'./static/img/share.jfif',
+        dialogVisible1:false,
+        enlarge:''
       }
     },
     methods: {
